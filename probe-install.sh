@@ -57,7 +57,7 @@ chmod +x start.sh
 ./start.sh
 
 # 加入开机自启动项中
-sed -i '$a su - root -c "$(pwd)/start.sh"' /etc/rc.d/rc.local
+sed -i '$a su - root -c "/root/tiny-server-probe/start.sh"' /etc/rc.d/rc.local
 chmod +x /etc/rc.d/rc.local
 
 # 完成
