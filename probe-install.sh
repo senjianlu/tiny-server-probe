@@ -2,12 +2,19 @@
 if [[ "command not found" =~ "$(python3 -V)" ]]
 then
     echo "需要先安装 Python3！"
-    mkdir Python3
-    cd Python3
-    wget https://raw.githubusercontent.com/senjianlu/kantan-tools/master/Centos7%20%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%20Python3/install.sh
-    chmod +x ./install.sh
-    ./install.sh
-    cd ..
+    version='3.8.2'
+    yum -y install zlib zlib-devel bzip2 bzip2-devel ncurses ncurses-devel readline readline-devel openssl openssl-devel openssl-static xz lzma xz-devel sqlite sqlite-devel
+    yum -y install gdbm gdbm-devel
+    yum -y install tk tk-devel
+    yum -y install libffi libffi-devel
+    yum -y install zlib* libffi-devel
+    yum install gcc* glien* -y
+    wget https://www.python.org/ftp/python/$version/Python-$version.tgz
+    tar -xvf Python-$version.tgz && mkdir /usr/local/python3 && cd Python-$version
+    ./configure --prefix=/usr/local/python3 && make && make install
+    ln -f /usr/local/python3/bin/python3.8 /usr/bin/python3
+    ln -f /usr/local/python3/bin/pip3.8 /usr/bin/pip3
+    PATH=$PATH:/usr/bin/python3
 else
     echo "Python3 已经存在！"
 fi
