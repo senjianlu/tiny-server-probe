@@ -1,5 +1,6 @@
 # 安装 Python3
-if [[ "command not found" =~ "$(python3 -V)"]]; then
+if [[ "command not found" =~ "$(python3 -V)" ]]
+then
     echo "需要先安装 Python3！"
     mkdir Python3
     cd Python3
@@ -21,7 +22,8 @@ pip3 insatll uvicorn
 ln -f /usr/local/python3/bin/uvicorn /usr/bin/uvicorn
 
 # 判断是只下载了个 install.sh 然后运行还是已经 Clone 了项目并从文件夹中启动
-if [[ "tiny-server-probe" =~ "$(pwd)"]]; then
+if [[ "tiny-server-probe" =~ "$(pwd)" ]]
+then
     echo "已经 Clone 了项目！"
 else
     echo "尚未 Clone 项目或者更改了项目名，开始重新 Clone 项目！"
