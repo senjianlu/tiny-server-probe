@@ -20,12 +20,13 @@ else
 fi
 
 # 安装所需 Python 包
+pip install --upgrade pip
 pip3 install fastapi
 pip3 install requests
 pip3 install psutil
 
 # 安装 FastAPI 启动所需的 Uvicorn 并建立软连接
-pip3 insatll uvicorn
+pip3 install uvicorn
 ln -f /usr/local/python3/bin/uvicorn /usr/bin/uvicorn
 
 # 判断是只下载了个 install.sh 然后运行还是已经 Clone 了项目并从文件夹中启动
