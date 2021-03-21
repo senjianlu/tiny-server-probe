@@ -29,19 +29,11 @@ pip3 install psutil
 pip3 install uvicorn
 ln -f /usr/local/python3/bin/uvicorn /usr/bin/uvicorn
 
-# 判断是只下载了个 install.sh 然后运行还是已经 Clone 了项目并从文件夹中启动
-if [[ "tiny-server-probe" =~ "$(pwd)" ]]
-then
-    echo "已经 Clone 了项目！"
-else
-    echo "尚未 Clone 项目或者更改了项目名，开始重新 Clone 项目！"
-    # 安装 Git
-    yum -y install git
-
-    # Clone 下整个项目
-    git clone https://github.com/senjianlu/tiny-server-probe.git
-    cd tiny-server-probe
-fi
+# Clone 下整个项目并访问
+echo "开始 Clone 项目！"
+yum -y install git
+git clone https://github.com/senjianlu/tiny-server-probe.git
+cd tiny-server-probe
 
 # 开放端口
 if [ "$1" = "" ] || [ $1 = 0 ]; then
