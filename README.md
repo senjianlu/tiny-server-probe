@@ -1,4 +1,26 @@
 # tiny-server-probe
-Python3 语言编写的基于 FastAPI 的轻量级服务器探针  
-一键安装：wget -O - https://raw.githubusercontent.com/senjianlu/tiny-server-probe/main/probe-install.sh | bash  
-**注意：请在服务器 root 目录下执行命令，否则请更改 probe-insatll.sh 中关于开机启动的脚本路径。**
+
+## 项目功能
+收集探针所部署服务器的 CPU、内存、硬盘和网络狀況，并以接口的形式暴露以方便远程查询和监控。  
+
+## 演示
+[API 测试](https://ceshiku.cn/tiny-server-probe/docs)  
+
+## 环境
+Python 3.8.2  
+fastapi 0.62.0  
+requests 2.24.0  
+uvicorn 0.13.1  
+
+## 部署
+> 注意：1、**程序的启动脚本 [start.sh](https://github.com/senjianlu/tiny-server-probe/blob/main/start.sh) 中默认项目地址在 /root/tiny-server-probe 下**，因此**部署请在服务器的 /root 下执行**，这样通过 [probe-install.sh](https://github.com/senjianlu/tiny-server-probe/blob/main/probe-install.sh) 第 [35](https://github.com/senjianlu/tiny-server-probe/blob/main/probe-install.sh#L35) 行命令才能将项目下载至正确位置。  
+2、API 默认部署在 **57191** 端口，如需更改请在执行安装命令时更改参数，并将 [start.sh](https://github.com/senjianlu/tiny-server-probe/blob/main/start.sh) 的第 [2](https://github.com/senjianlu/tiny-server-probe/blob/main/start.sh#2) 行的端口进行替换。
+```shell
+wget https://raw.githubusercontent.com/senjianlu/tiny-server-probe/main/probe-install.sh  
+chmod +x probe-install.sh
+# 57191 可替换为所需端口
+./probe-install.sh 57191
+```  
+
+## 使用手册
+请自行查询 [API 文档](https://ceshiku.cn/tiny-server-probe/docs)。

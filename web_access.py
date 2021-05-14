@@ -25,14 +25,14 @@ def test_access(web_url):
     start_time = time.time()
     try:
         response = requests.get(web_url, timeout=5)
-        if (response.status_code == 200):
-            access_info["200"] = "OK"
-        else:
-            access_info[str(response.status_code)] = response.text
+        access_info["status_code"] = response.status_code
+        if (response.status_code != 200):
+            access_info["detail"] = response.text
         # 响应时间
-        access_info["time"] = str(int((time.time()-start_time)*1000)) + "ms"
+        access_info["time"] = str(int((time.time()-start_time)*1000)) + " ms"
     except Exception as e:
-        access_info["500"] = str(e)
+        access_info["status_code"] = 500
+        access_info["detail"] = str(e)
         access_info["time"] = None
     return access_info
 
