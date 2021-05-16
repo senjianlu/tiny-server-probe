@@ -19,6 +19,10 @@ else
     echo "Python3 已经存在！"
 fi
 
+# 安装 GCC 和 Python3 开发环境防止安装 psutil 时出现错误
+# https://github.com/giampaolo/psutil/issues/1143
+yum -y install gcc libffi-devel pyt
+yum -y install python3-devel
 # 安装所需 Python 包
 pip install --upgrade pip
 pip3 install fastapi
