@@ -56,15 +56,16 @@ def deocde_web_urls(web_urls_after_base64):
 @return:
 """
 @app.get("/status")
-async def get_status(web_urls_after_base64: str):
+async def get_status(web_urls_after_base64: str = None):
     # 当前时间戳
     status = {"timestamp": time.time()}
     try:
         # 服务器当前硬件状态
         status["server_status"] = server_status.get_all()
         # 测试该服务器对网站的访问可行性
-        web_urls = deocde_web_urls(web_urls_after_base64)
-        status["web_access"] = web_access.test_all(web_urls)
+        if (web_urls_after_base64):
+            web_urls = deocde_web_urls(web_urls_after_base64)
+            status["web_access"] = web_access.test_all(web_urls)
         # 返回
         return status
     except Exception as e:

@@ -41,9 +41,9 @@ def get_memory_status():
     status_infos = {}
     mem = psutil.virtual_memory()
     # 当前内存使用量
-    status_infos["used"] = str(round(mem.used/EXPAND, 2)) + "Mb"
+    status_infos["used"] = str(round(mem.used/EXPAND, 2)) + " Mb"
     # 当前内存总量
-    status_infos["total"] = str(round(mem.total/EXPAND, 2)) + "Mb"
+    status_infos["total"] = str(round(mem.total/EXPAND, 2)) + " Mb"
     # 当前内存占用率
     status_infos["percent"] = str(psutil.virtual_memory().percent) + "%"
     return status_infos
@@ -71,13 +71,13 @@ def get_disk_status():
         disk = psutil.disk_usage(disk_key)
         # 当前该磁盘使用量
         status_infos["disks"][disk_key]["used"] = str(
-            round(disk.used/EXPAND, 2)) + "Mb"
+            round(disk.used/EXPAND, 2)) + " Mb"
         # 当前该磁盘总量
         status_infos["disks"][disk_key]["total"] = str(
-            round(disk.total/EXPAND, 2)) + "Mb"
+            round(disk.total/EXPAND, 2)) + " Mb"
         # 当前该磁盘剩余空间
         status_infos["disks"][disk_key]["free"] = str(
-            round(disk.free/EXPAND, 2)) + "Mb"
+            round(disk.free/EXPAND, 2)) + " Mb"
         # 磁盘利用率
         status_infos["disks"][disk_key]["percent"] = str(
             round((disk.used/disk.total)*100, 2)) + "%"
@@ -88,9 +88,9 @@ def get_disk_status():
     # 算出总磁盘使用率
     per = status_infos["used"]/status_infos["total"]
     status_infos["percent"] = str(round(per*100, 2)) + "%"
-    status_infos["used"] = str(round(status_infos["used"])) + "Mb"
-    status_infos["total"] = str(round(status_infos["total"])) + "Mb"
-    status_infos["free"] = str(round(status_infos["free"])) + "Mb"
+    status_infos["used"] = str(round(status_infos["used"])) + " Mb"
+    status_infos["total"] = str(round(status_infos["total"])) + " Mb"
+    status_infos["free"] = str(round(status_infos["free"])) + " Mb"
     return status_infos
 
 """
