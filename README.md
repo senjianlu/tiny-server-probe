@@ -7,7 +7,7 @@
 基于 Python，首先使用 psutil 模块获取本机的 CPU、内存和硬盘当前占用情况，然后使用 requests 模块访问需测试的网站链接并获取响应代码和延迟，将这两个模块的数据结果整理为 JSON 格式，最后通过 FastAPI 将整体功能以接口形式提供给外部请求。
 
 ## 演示
-[API 测试](https://ceshiku.cn/tiny-server-probe/docs)  
+[API 测试](https://ceshiku.cn/tiny-server-probe/status?web_urls_a-fter_base64=WyJodHRwczovL3d3dy5iYWlkdS5jb20iLCAiaHR0cHM6Ly9nb29nbGUuY29tIl0=)  
 
 ## 环境
 | 模块 | 版本 |
@@ -32,7 +32,7 @@ chmod +x probe-install.sh
 ```  
 
 ## 使用手册
-路由请自行查询 [API 文档](https://ceshiku.cn/tiny-server-probe/docs)。
+路由请自行查询 [API 文档](http://ceshiku.cn:57191/docs)。
 |参数|说明|例子|
 |---|---|--|
 |web_urls_a-fter_base64|将 Python list 格式的待测试链接转为 str 格式|WyJodHRwczovL3d3dy5iYWlkdS5jb20iLCAiaHR0cHM6Ly9nb29nbGUuY29tIl0=（转换前：["https://baidu.com", "https://google.com"]）|
