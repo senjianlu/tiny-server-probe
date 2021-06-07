@@ -1,5 +1,5 @@
 #!/bin/bash
-# 原作者：Rabbir
+# 作者：Rabbir
 
 # 探针所部署的端口
 if  [ ! "$1" ] ;
@@ -51,7 +51,7 @@ python3 -m pip install -r requirements.txt
 ln -f /usr/local/python3/bin/uvicorn /usr/bin/uvicorn
 
 # 修改启动器 start.sh 中的项目路径
-sed -i "1c cd $install_path/tiny-server-probe" start.sh
+sed -i "1c cd $install_path/tiny-server-probe/main" start.sh
 # 修改启动器 start.sh 中的端口信息
 sed -i "s/57191/$tiny_server_probe_port/" start.sh
 
