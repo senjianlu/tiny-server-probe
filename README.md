@@ -19,16 +19,14 @@
 
 ## 部署
 💡 **注意事项**：  
-1. [probe-install.sh](https://github.com/senjianlu/tiny-server-probe/blob/main/probe-install.sh) 安装脚本仅在 CentOS7 下测试通过，其他 Linux 发行版本请自行测试修改。  
-2. **程序的启动脚本 [start.sh](https://github.com/senjianlu/tiny-server-probe/blob/main/start.sh) 中默认项目地址在 /root/tiny-server-probe 下**，因此**部署请在服务器的 /root 下执行**，这样通过 [probe-install.sh](https://github.com/senjianlu/tiny-server-probe/blob/main/probe-install.sh) 第 [39](https://github.com/senjianlu/tiny-server-probe/blob/main/probe-install.sh#L39) 行命令才能将项目下载至正确位置。  
-3. API 默认部署在 **57191** 端口，如需更改请在执行安装命令时更改参数（带参数启动安装脚本的情况下，安装程序会自动开放指定端口的防火墙，并对 [start.sh](https://github.com/senjianlu/tiny-server-probe/blob/main/start.sh) 中的第 [2](https://github.com/senjianlu/tiny-server-probe/blob/main/start.sh#L2) 行进行端口替换）。  
+1. [install.sh](https://github.com/senjianlu/tiny-server-probe/blob/main/install.sh) 安装脚本仅在 CentOS7 下测试通过，其他 Linux 发行版本请自行测试修改。  
+2. **程序的默认安装路径为 /root/GitHub/tiny-server-probe**，如需自定义请修改 [install.sh](https://github.com/senjianlu/tiny-server-probe/blob/main/install.sh) 第 [31](https://github.com/senjianlu/tiny-server-probe/blob/main/install.sh#L31) 行。  
+3. API 默认部署在 **57191** 端口，如需更改请在执行安装命令时更改参数（带参数启动安装脚本的情况下，安装程序会自动开放指定端口的防火墙）。  
 
 💻 **部署指令**：
-```shell
-wget https://raw.githubusercontent.com/senjianlu/tiny-server-probe/main/probe-install.sh  
-chmod +x probe-install.sh
-# 57191 可替换为所需端口
-./probe-install.sh 57191
+```bash
+# $tiny_server_probe_port 替换为探针所部署的端口
+curl -s https://gitee.com/senjianlu/tiny-server-probe/raw/main/install.sh | bash -s $tiny_server_probe_port
 ```  
 
 ## 使用手册
