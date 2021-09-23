@@ -36,7 +36,13 @@
 curl -s https://gitee.com/senjianlu/tiny-server-probe/raw/main/install.sh | bash -s $tiny_server_probe_port
 ```  
 
-🗑️ **卸载**
+## 使用手册
+路由请自行查询 [API 文档](https://tiny_server_probe.ceshiku.cn/docs)。
+|参数|说明|例子|
+|---|---|--|
+|web_urls_a-fter_base64|将 Python list 格式的待测试链接转为 str 格式|WyJodHRwczovL3d3dy5iYWlkdS5jb20iLCAiaHR0cHM6Ly9nb29nbGUuY29tIl0=（转换前：["https://baidu.com", "https://google.com"]）|  
+
+## 卸载
 1. 删除安装路径下名为 tiny-server-probe 的文件夹。
 2. 删除 crontab 中的自启动任务。
 3. 卸载 Python3 和对应模块：
@@ -52,9 +58,3 @@ rm -rf /usr/bin/uvicorn
 # 卸载 Python3
 rm -rf /usr/local/python3
 ```
-
-## 使用手册
-路由请自行查询 [API 文档](https://tiny_server_probe.ceshiku.cn/docs)。
-|参数|说明|例子|
-|---|---|--|
-|web_urls_a-fter_base64|将 Python list 格式的待测试链接转为 str 格式|WyJodHRwczovL3d3dy5iYWlkdS5jb20iLCAiaHR0cHM6Ly9nb29nbGUuY29tIl0=（转换前：["https://baidu.com", "https://google.com"]）|
