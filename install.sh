@@ -61,7 +61,7 @@ chmod +x start.sh
 ./start.sh
 
 # 配置 Screen 能读取环境变量
-echo "shell -$SHELL" >> /etc/screenrc
+echo 'shell -$SHELL' >> /etc/screenrc
 # 加入开机自启动项中
 echo "@reboot bash $install_path/tiny-server-probe/start.sh" >> /var/spool/cron/root
 service crond restart
