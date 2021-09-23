@@ -35,6 +35,7 @@ install_path=/root/GitHub
 yum -y install gcc libffi-devel pyt
 yum -y install python3-devel
 yum -y install git
+yum -y install screen
 
 # 克隆项目
 echo "开始 Clone 项目......"
@@ -59,6 +60,8 @@ sed -i "s/57191/$tiny_server_probe_port/" start.sh
 chmod +x start.sh
 ./start.sh
 
+# 配置 Screen 能读取环境变量
+echo "shell -$SHELL" >> /etc/screenrc
 # 加入开机自启动项中
 echo "@reboot bash $install_path/tiny-server-probe/start.sh" >> /var/spool/cron/root
 service crond restart
